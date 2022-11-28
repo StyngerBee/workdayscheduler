@@ -12,25 +12,14 @@ $(document).ready(function () {
         //set items in local storage.
         localStorage.setItem(time, text);
     })
-    //loads any saved data from LocalStorage and display for each hour
-    $("#9am .description").val(localStorage.getItem("9am"));
-    $("#10am .description").val(localStorage.getItem("10am"));
-    $("#11am .description").val(localStorage.getItem("11am"));
-    $("#12pm .description").val(localStorage.getItem("12pm"));
-    $("#1pm .description").val(localStorage.getItem("1pm"));
-    $("#2pm .description").val(localStorage.getItem("2pm"));
-    $("#3pm .description").val(localStorage.getItem("3pm"));
-    $("#4pm .description").val(localStorage.getItem("4pm"));
-    $("#5pm .description").val(localStorage.getItem("5pm"));
-
-
+   
     function hourTracker() {
         //get current number of hours.
         var currentHour = moment().hour();
 
         // loop over time blocks
         $(".time-block").each(function () {
-            var blockHour = parseInt($(this).attr("class").split("hour")[1]);
+            var blockHour = parseInt($(this).attr("name").split("hour")[1]);
             console.log( blockHour, currentHour)
 
             //check if we've moved past this time
@@ -53,3 +42,14 @@ $(document).ready(function () {
     }
     hourTracker();
 })
+
+ //loads any saved data from LocalStorage and display for each hour
+ $("#9am .description").val(localStorage.getItem("9am"));
+ $("#10am .description").val(localStorage.getItem("10am"));
+ $("#11am .description").val(localStorage.getItem("11am"));
+ $("#12pm .description").val(localStorage.getItem("12pm"));
+ $("#1pm .description").val(localStorage.getItem("1pm"));
+ $("#2pm .description").val(localStorage.getItem("2pm"));
+ $("#3pm .description").val(localStorage.getItem("3pm"));
+ $("#4pm .description").val(localStorage.getItem("4pm"));
+ $("#5pm .description").val(localStorage.getItem("5pm"));
