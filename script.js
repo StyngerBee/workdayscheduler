@@ -22,21 +22,21 @@ $(document).ready(function () {
             var blockHour = parseInt($(this).attr("name").split("hour")[1]);
             console.log( blockHour, currentHour)
 
-            //check if we've moved past this time
+            //checks if we have already passed the current hour, or if it is upcoming/passed
             if (blockHour < currentHour) {
-                $(this).addClass("past");
-                $(this).removeClass("future");
-                $(this).removeClass("present");
+                $(this).addClass("passed");
+                $(this).removeClass("upcoming");
+                $(this).removeClass("current");
             }
             else if (blockHour === currentHour) {
-                $(this).removeClass("past");
-                $(this).addClass("present");
-                $(this).removeClass("future");
+                $(this).removeClass("passed");
+                $(this).addClass("current");
+                $(this).removeClass("upcoming");
             }
             else {
-                $(this).removeClass("present");
-                $(this).removeClass("past");
-                $(this).addClass("future");
+                $(this).removeClass("current");
+                $(this).removeClass("passed");
+                $(this).addClass("upcoming");
             }
         })
     }
