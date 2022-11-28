@@ -17,7 +17,7 @@ $(document).ready(function () {
         //get current number of hours.
         var currentHour = moment().hour();
 
-        // loop over time blocks
+        // loops over time blocks and parses data
         $(".time-block").each(function () {
             var blockHour = parseInt($(this).attr("name").split("hour")[1]);
             console.log( blockHour, currentHour)
@@ -43,7 +43,7 @@ $(document).ready(function () {
     hourTracker();
 })
 
- //loads any saved data from LocalStorage and display for each hour
+ //loads any saved data from LocalStorage and displays for each hour
  $("#9am .description").val(localStorage.getItem("9am"));
  $("#10am .description").val(localStorage.getItem("10am"));
  $("#11am .description").val(localStorage.getItem("11am"));
